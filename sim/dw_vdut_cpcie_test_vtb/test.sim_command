@@ -1,0 +1,60 @@
+notice
++vcs+lic+wait
++v2k
++verilog200lext+.vp+define+VCSsverilogerror=IPDWerror=IGPAerror=PCSRMIOerror=AOUPerror=ELW UNBOUNDerror=IUWIerror=INAVerror=ENUMASSIGNerror=SV-ISCerror=0SVF-NPVIUFPIerror=DPIMIerror=IPDASPerror=CM-HIER-FNF
+error=CWUCerror=UPF OBJECT NOT FOUND WARNsuppress=LCA FEATURES ENABLEDsuppress=UII-L
+suppress=UPF SUPPLY PORT IMPLICIT CONNECTION
+suppress=PCTIO-L
+suppress=SV-LCM-PPWI
+suppress=SVA-LDRF
+suppress=VCM-NOCOV-ENC
+suppress=VCM-NODRCO
+lint=TFIPC
+-define+ASSERT ON
+y ${VCS HOME}/packages/sva cg
+incdir+${VCS HOME}/packages/sva cg
+/ END: simulator specific options - vcs
+-nowarnTFNPC
++warn=noZONMCM
+-libext+.v+.V+.sv+.vh+.svh
+librescan
++warn=noTMR
++define+UVM REG FIELD LEVEL ATTRIBUTE
+/ Enable MIS-SAMPLES in the BCM CDC Modules
+-define+DW MODEL MISSAMPLES
+ Disable the banner
+define+DWC DISABLE CDC METHOD REPORTING
+define+RTL
+Waves recording depth
++define+DUMP DEPTH=O
+ Delay wave recording start time
++define+DUMP DELAY=O
+define+FSDB DUMP
+y /EDA/CAD/Synopsys/Synopsys2021/syn/S-2021.06-SP4/dw/sim verincdir+/EDA/CAD/Synopsys/Synopsys2021/syn/S-2021.06-SP4/dw/sim_ver
+f/data/user/user06/work/101/i DWC pce ctl 230428/src/DWC pcie ctl.lstf/data/user/user06/work/101/i DwC pcie ctl 230428/src/Phy/generic/compile.fdata/user/user06/work/101/i DwC pcie ctl 230428/src/DWC pcie ctl cc constants.svhdata/user/user06/work/101/i DwC pcie ctl 230428/src/include/pcie defs.svh/data/user/user06/work/101/i DWC pcie ctl 230428/src/include/cxpl defs.svh/data/user/user06/work/101/i DWC pcie ctl230428/src/include/adm defs.svh/data/user/user06/work/101/i DWC pcie ctl230428/src/include/radm defs.svh/data/user/user06/work/101/ DWC pcie ctl 230428/src/Axi/DwC pcie axi gm constants.svh/data/user/user06/work/101/i DWC pcie ctl230428/src/Axi/DWC pcie axi gs constants.svh/data/user/user06/work/101/i DWC pcie ctl230428/src/Edma/DWC pcie edma constants.svh/data/user/user06/work/101/i DwC pcie ctl 230428/src/include/amba defs.svh/data/user/user06/work/101/ DWC pcie ctl 230428/src/include/port_cfg.svhdata/user/user06/work/101/i DWC pcie ctl 230428/src/include/cap port cfg.svh/data/user/user06/work/101/i DwC pcie ctl 230428/src/include/pipe defines.svh
++incdir+/data/user/user06/work/101/i DWC pcie ctl 230428/src
+y /data/user/user06/work/101/i DwC_pcie ctl 230428/src
++incdir+/data/user/user06/work/101/i DWCpcie ctl 230428/sim/models/vip/src/sverilog/vcsy /data/user/user06/work/101/ DwC_pcie ctl 230428/sim/models/vip/src/sverilog/vcs
++incdir+/data/user/user06/work/101/i DWC pcie ctl 230428/sim/models/vip/src/verilog/vcsy /data/user/user06/work/101/ DWC pcie ctl 230428/sim/models/vip/src/verilog/vcs
+/ VTB core
+------------------
+------------
+--------
++define+SNPS PCIE VTB
++define+SVTB
++define+UVM PACKER MAX BYTES=1500000+define+UVM DISABLE AUTO ITEM RECORDING+define+SYNOPSYS SV
++define+PCIESVC MEM PATH=vtb.u vip.memo
+./testbench/vtb/src/include/vtb macros.vh
+data/user/user06/work/101/i DwC pcie ct 230428/src/DwC pcie ctl-undef.v
+data/user/user06/work/101/i DWC pcie ctl 230428/scratch/assembly/vdut/src/DWC pcie model cc constants.svhdata/user/user06/work/101/i DWC pcie ctl 230428/scratch/assembly/vdut/src/DWC pcie model defs.svh/data/user/user06/work/101/i DWC pcie ctl 230428/scratch/assembly/vdut/src/DWC pcie model caps.svh./testbench/vtb/src/sv/api/vtb vdut pkg.sv
+/data/user/user06/work/101/i DWC pcie ctl 230428/scratch/assembly/vdut/src/DWC pcie model-undef.v
+/data/user/user06/work/101/i DWC pcie ctl 230428/src/DwC pcie ctl cc constants.svhdata/user/user06/work/101/i DWC pcie ctl 230428/src/include/pcie defs.svhdata/user/user06/work/101/i DwC pcie ctl 230428/src/include/cxpl defs.svh/data/user/user06/work/101/ DwC pcie ct 230428/src/include/adm defs.svhdata/user/user06/work/101/i DwC pcie ctl 230428/src/include/radm defs.svhdata/user/user06/work/101/ DwC pcie ctl 230428/src/include/amba defs.svh/data/user/user06/work/101/i DwC pcie ctl 230428/src/include/port cfg.svh/data/user/user06/work/101/i DWC pcie ctl 230428/src/include/cap port cfg.svh/data/user/user06/work/101/i DWC pcie ctl 230428/src/include/pipe defines.svh
+./testbench/vtb/src/sv/api/vtb api pkg.sv
+/testbench/vtb/src/sv/ral/vtb ral pkg.sv/testbench/vtb/src/sv/pm/if sequences/pm if pkq.sv./testbench/vtb/src/svi/svi list.svh
+./testbench/vtb/src/sv/api/vtb link pkq.sv
+../testbench/vtb/tests/vtb test pkg.sv
+---------------------
+Top-level VTB included last
+----------
+------------------------------------
+./testbench/vtb/src/verilog/vtb.v./testbench/vtb/src/verilog/vtbSvConfiq.sv

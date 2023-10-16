@@ -1,0 +1,27 @@
+bCX SIM=vcs ;export CX SIMDISPLAY VCS HOME=1; export DISPLAY VCS HOMEMTI VCO MODE=32 ; export MTI VCO MODE
+LD LIBRARY PATH=:/EDA/CAD/Synopsys/Synopsys2020/verdi/R-2020.12/share/PLI/VCS/Linux64:/data/user/user06/work/101/i DC pcie ct1 230428/sim:/ED/CAD/Synopsys/Synopsys220/coreto0l-R-2020.12-SP4/Linux64/dware/shlib:/EDA/CAD/Synopsys/Synopsys2020rerdi/R-202.12/share/FsdbReader/linux64:/EDA/CAD/SynopSys/Synopsys2020/verdi/R-220.12/share/Fsdbwriter/Lnux64:/EDA/CAD/SynopsysJynopys2020/NCS/R-20202/rarles:/EDA/CAD/cadence/C06,18140/t0 s/ b/64Dt/RHL/RHEL7:/uSr/ 1b:/EDA/CAD/cadence/ALTOS130814tools.Inx86/Lib:/EDA/CAD/Cadence/ATOS130814/tools.Inx86/ib/64bit/SuSE:/EDA/CAD/Cadence/IC6.18.140/tools/Lib:/EDA/CAD/bin:/EDA/CAD/Synopsys/Synopsys2018/sentaurus VF 2011.09/tcad/F-2011.09/amd64/lib/deviselib:/EDA/CAD/Synopsys/Synopsys2018/sentaurUS VE 201109/tcad/F-2011.09/amd64/Lib/:/EDA/CAD/adence/TUS82/to0S/Lib: /EDA/CAD/Cadence/TUS82/t00lS/dfI1/Lib:/EDA/CADCadence/IC06.18.140/tools/Lib:/lib:/ ib64:/usr/lib:/usr/Lib64:/usr/lib/X11:/usr/Lib/X11 ; export LD LIBRARY PATHenv > env.info/bin/rm -fr performance.sqlwstestdir='pwd
+local=.
+# the shutdown function is invoked to cleanup once the script completesshutDown () {cd $wstestdir
+# copy back files from the scratch area if that was usedif["$local" !="." ]; thenif[ -e"$local/test.log” ]; then/bin/cp -f $local/test.log ./
+fiif[-e“$local/performance.sql" ]; then/bin/cp -f $local/performance.sql ./
+fiif[ -e"$local/cov db.vdb” ]; then/bin/cp -Rpf $local/cov db.vdb ./
+fiif[ -e"$local/compile passed" ]; then/bin/cp -Rpf $local/compile passed ./
+5if[ -e "$local/sim.time" ]; then/bin/cp -Rpf $local/sim.time ./
+fi/bin/rm -rf $localfi# execute post-processingcd.# analyze performance data - if generatedif[-e"dw vdut cpcie test vtb/performance.sql" ]; then/usr/bin/perl ./testbench/vtb/rc/sv/performance/bin/performance analysis.pl --sqlcmd dw vdut cpcie test vtb/performance.sqlloutdir /data/user/user06/work/101/i DWC pcie ctl 230428/sim/dw vdut cpcie test vtb --ccfile /data/user/user06/work/101/i DwC pcie ctl 230428/src/DWC pcie ctl cc constants.svh --htmlfragfi
+# update test status/usr/bin/perl ./runtest --postprocess=CHECK --testdw vdut cpcie test vtb --Compilerconly 1 --logFilelimit 0# Code below required for pinDownifl ! -f dw vdut cpcie test vtb/compile passed -a f failed/dw vdut cpcie test vtb ]; thenfailed str='cat failed/dw vdut cpcie test vtb sed 's/.*\/a> //'; echo "a href="./../DWC pcie ctl/ib/i DWC pcie ctl 230428)sim/dw vdut cpcie test vtb)"BUILD FAILED:</a> $failed str"> failed/dw dut cpcie test vtb; fiif [ -f dw vdut cpcie test vtb/compile passed -a -f failed/dw vdut cpcie test vtb ]; thenfailed str='cat failed/dw vdut cpcie test vtb'; echo "BUILD PASSED: $failed str" > failed/dw vdut cpcie test vtb; fiif[ -f passed/dw vdut cpcie test vtb ]; thenecho "BUILD PASSED:" > passeddw vdut cpcie test vtb; fi
+/bin/rm -rf dw vdut cpcie test vtb/compile passedexit 日
+# this is invoked whenever an exit condition is signalledkillsim () {
+kill -TERM“$child" 2>/dev/nulltouch $local/test.logecho
+FATAL : This test received a termination signal. It may have exceeded the 0 seconds runtime limit" >> $local/test.logshutDown
+trap killSim TERM INT ALRM KILL I 2 315
+/bin/rm -rf test.log*
+en pcomp=0if["$en pcomp" -eq“1” ]; thenpcomp_opts="-partcomp vtbSvConfig -fastpartcomp=jl -fastcomp=l -pcmakeprof"else
+pcomp opts="-top vtb"fiecho“WORK > DEFAULT” > synopsys sim.setupecho"DEFAULT : worklib” >> synopsys sim.setupif[ -d $local/worklib ]; then rm -rf $local/worklib; fiecho“***[date ]:Analyzing UVM ***” tee -a test.logvlogan -ntb opts uvm +define+UVM OBJECT MUST HAVE CONSTRUCTOR +define+UVM NO DEPRECATED+define+uym DISABLE AUTO ITE RECORDING +define-VT UVM TECHNOL0GY +define+SYNOPSYS SV +define+U PACKER MAX BYTES-150000+define+VCS UUM-timescale=Ins/1ps+define+DOWNSTREAM PORT +define+DUT2DUT +define+LINK IS SERDES-lca -q -xlrmuniq prior final -assert enable diag-assert svaext -kdb  tee -a test.log
+if[ $? != ]; then exit o; fi
+echo“***[date  ] : Analyzing TB ***" tee -a test.logvlogan -ntb opts uvm+define+UVM OBJECT MUST HAVE CONSTRUCTOR +define+UVM NO DEPRECATED+define+uvM DISABLE AUTO ITEM RECORDIN +define+SVT UVM TECHNOLOGY +define+SYNOPSYS SV +define+UVM PACKER MAX BYTES-1500000+define+VCS UUM-timescale=Ins/1ps+define+DOWNSTREAM PORT +defineDUT2DUT +defineLINK IS SERDES ca -g -xlrmuniq prior final -assert enable diag -assert svaext -kdbf/data/user/user06/work/101/i DWC pcie ctl 230428/sim/dw vdut cpcie test vtb/test.sim command  tee -a test.log
+if[ $? != ]; then exit ; fi
+echo“***[date ]: Building TB ***"  tee -a test.logvcs -Ica -R -cm cond+fsm+tql+branch+line -cm hier ./vcs cov.cfg -cm name ggccov -cm dir ./simv qgc.vdb -g -xlrmuniq prior final -assert enable diag -assert svaext -kdb-j +lint=TFIPC-L -debug access+pp+dmptf+driverslebug region=cell+lib +pi -Marchive=l00 -P /data/user/user06/work/101/i DwC pcie ctl 230428/sim/testbench/vtb/hdl backdoor.tabP/data/user/user06/work/101/i DMC pcie ct 230428/sim/models/obj/linux/vcs/pli.tab /data/user/user06/work/101/: DWC pcie ctl 230428/sim/models/obj/Linux/vcs/msglog.o /data/common 10l/tmp/0.user06/pcie5.9a/vip/common/latest/C/Lib/LinuxVipCommonNtb.so -xprop=./xprop.cfg-ntb opts uvm $pcomp opts tee -a test.log
+if[$? != ]; then exit ; fi
+echo"***[date’]: Simv Done ***"  tee -a test.log
+child=$!
+wait"$child"shutDown
